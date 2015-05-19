@@ -1,4 +1,4 @@
-FORK PROJECT
+#FORK PROJECT
 
 # Validator, for Bootstrap 3
 The Validator plugin offers automatic form validation configurable via mostly HTML5 standard attributes.
