@@ -1,5 +1,5 @@
 /* ========================================================================
- * Bootstrap (plugin): validator.js v0.8.1
+ * Bootstrap (plugin): validator.js v0.8.3
  * ========================================================================
  * The MIT License (MIT)
  *
@@ -65,6 +65,7 @@
     delay: 500,
     html: false,
     disable: true,
+    autoDefer: true,
     custom: {},
     errors: {
       match: 'Does not match',
@@ -107,7 +108,7 @@
     this.runValidators($el).done(function (errors) {
       $el.data('bs.validator.errors', errors)
 
-      errors.length ? self.showErrors($el) : self.clearErrors($el)
+      errors.length && (self.options.autoDefer || self.options.delay == 0) ? self.showErrors($el) : self.clearErrors($el)
 
       if (!prevErrors || errors.toString() !== prevErrors.toString()) {
         e = errors.length
