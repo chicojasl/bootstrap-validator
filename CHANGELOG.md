@@ -1,6 +1,9 @@
 Changelog
 =========
 
+### 0.8.3
+* Adding custom option about show errors immediately or only after submit 
+
 ### 0.8.1
 * No longer running validators on button elements. Fixes #93.
 * No longer running validators on invisible input elements. Fixes #65.
