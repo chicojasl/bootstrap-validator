@@ -95,6 +95,7 @@
   Validator.prototype.validateInput = function (e) {
     var $el        = $(e.target)
     var prevErrors = $el.data('bs.validator.errors')
+    var autoDeferElem = (typeof $el.attr('no-autodefer') === typeof undefined)
     var errors
 
     if ($el.is('[type="radio"]')) $el = this.$element.find('input[name="' + $el.attr('name') + '"]')
@@ -108,7 +109,9 @@
     this.runValidators($el).done(function (errors) {
       $el.data('bs.validator.errors', errors)
 
-      errors.length && (self.options.autoDefer || self.options.delay == 0) ? self.showErrors($el) : self.clearErrors($el)
+      var autoDefer = (self.options.autoDefer && autoDeferElem)
+
+      errors.length && (autoDefer || self.options.delay == 0) ? self.showErrors($el) : self.clearErrors($el)
 
       if (!prevErrors || errors.toString() !== prevErrors.toString()) {
         e = errors.length
