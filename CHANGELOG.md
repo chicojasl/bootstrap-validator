@@ -1,5 +1,7 @@
 Changelog
 =========
+### 0.8.4
+* Adding custom attribute about autoDefere
 
 ### 0.8.3
 * Adding custom option about show errors immediately or only after submit 
